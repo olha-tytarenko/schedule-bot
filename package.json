@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bot"
   },
+  "engines": {
+    "node": "9.11.1"
+  },
   "author": "Olha Tytarenko",
   "license": "ISC",
   "dependencies": {

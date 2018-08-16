@@ -10,9 +10,13 @@ const bot = new Telegraf(API_TOKEN);
 bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
 app.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
-bot.hears('hi', ctx => {
-  return ctx.reply('Hey!');
-});
+
+bot.start((ctx) => ctx.reply('Welcome'));
+bot.help((ctx) => ctx.reply('Send me a sticker'));
+bot.on('sticker', (ctx) => ctx.reply('👍'));
+bot.hears('hi', (ctx) => ctx.reply('Hey there'));
+bot.hears(/buy/i, (ctx) => ctx.reply('Buy-buy'));
+
 
 bot.startPolling();
 
