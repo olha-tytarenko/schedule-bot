@@ -9,6 +9,7 @@
   "author": "Olha Tytarenko",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.3",
     "telegraf": "^3.22.2"
   }
 }

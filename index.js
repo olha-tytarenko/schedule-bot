@@ -1,8 +1,25 @@
 const Telegraf = require('telegraf');
-const app = new Telegraf('618490077:AAFQbPupzUUNHqADjHDlQu-RPAobpJLSYeM');
+const express = require('express');
+const app = express();
 
-app.hears('hi', ctx => {
+const API_TOKEN = process.env.API_TOKEN || '618490077:AAFQbPupzUUNHqADjHDlQu-RPAobpJLSYeM';
+const PORT = process.env.PORT || 3000;
+const URL = process.env.URL || 'https://your-heroku-app.herokuapp.com';
+
+const bot = new Telegraf(API_TOKEN);
+bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
+app.use(bot.webhookCallback(`/bot${API_TOKEN}`));
+
+bot.hears('hi', ctx => {
   return ctx.reply('Hey!');
 });
 
-app.startPolling();
+bot.startPolling();
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
