@@ -2,7 +2,7 @@ const Telegraf = require('telegraf');
 const express = require('express');
 const app = express();
 
-const API_TOKEN = process.env.API_TOKEN || '618490077:AAFQbPupzUUNHqADjHDlQu-RPAobpJLSYeM';
+const API_TOKEN = '618490077:AAFQbPupzUUNHqADjHDlQu-RPAobpJLSYeM';
 const PORT = process.env.PORT || 3000;
 const URL = process.env.URL || 'https://your-heroku-app.herokuapp.com';
 
